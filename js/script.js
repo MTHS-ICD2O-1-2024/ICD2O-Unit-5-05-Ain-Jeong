@@ -35,11 +35,11 @@ function checkTypeOfTriangle () {
     if (sideA === sideB && sideA === sideC && sideB === sideC) {
       // output
       document.getElementById('answer').innerHTML =
-        'This is a Equilateral Triangle.'
+        'This is an Equilateral Triangle.'
     } else if (sideA === sideC || sideA === sideB || sideB === sideC) {
       // output
       document.getElementById('answer').innerHTML =
-        'This is a Isosceles Triangle.'
+        'This is an Isosceles Triangle.'
     } else {
       // output
       document.getElementById('answer').innerHTML =
