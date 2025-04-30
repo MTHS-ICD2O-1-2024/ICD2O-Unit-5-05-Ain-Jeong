@@ -8,22 +8,45 @@
  * This function check user's age and the type of movie they can watch
  */
 // eslint-disable-next-line no-unused-vars
-function checkPrice () {
+function checkTypeOfTriangle () {
   // input
-  const userAge = parseFloat(document.getElementById('user-age').value)
-  const day = document.getElementById('day').value
+  const sideA = parseFloat(document.getElementById('side-a').value)
+  const sideB = parseFloat(document.getElementById('side-b').value)
+  const sideC = parseFloat(document.getElementById('side-c').value)
 
-  // process
-  if (
-    (userAge <= 21 && userAge >= 12) ||
-    day === 'tuesday' ||
-    day === 'thursday'
-  ) {
-    // output
-    document.getElementById('answer').innerHTML =
-      'You are eligible for the student pricing!'
+  // using the cosine law
+  const angleA =
+    Math.acos((sideB ** 2 + sideC ** 2 - sideA ** 2) / (2 * sideB * sideC)) *
+    (180 / Math.PI)
+  const angleB =
+    Math.acos((sideC ** 2 + sideA ** 2 - sideB ** 2) / (2 * sideC * sideA)) *
+    (180 / Math.PI)
+  const angleC =
+    Math.acos((sideA ** 2 + sideB ** 2 - sideC ** 2) / (2 * sideA * sideB)) *
+    (180 / Math.PI)
+
+  const sumOfAngles =
+    Number(angleA.toFixed(2)) +
+    Number(angleB.toFixed(2)) +
+    Number(angleC.toFixed(2))
+
+  if (sumOfAngles === 180) {
+    // process
+    if (sideA === sideB && sideA === sideC && sideB === sideC) {
+      // output
+      document.getElementById('answer').innerHTML =
+        'This is a Equilateral Triangle.'
+    } else if (sideA === sideC || sideA === sideB || sideB === sideC) {
+      // output
+      document.getElementById('answer').innerHTML =
+        'This is a Isosceles Triangle.'
+    } else {
+      // output
+      document.getElementById('answer').innerHTML =
+        'This is a Scalene Triangle.'
+    }
   } else {
     // output
-    document.getElementById('answer').innerHTML = 'You must pay regular price.'
+    document.getElementById('answer').innerHTML = 'This is not a triangle.'
   }
 }
