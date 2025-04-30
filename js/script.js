@@ -5,7 +5,7 @@
 // This file contains the JS functions for index.html
 
 /**
- * This function check user's age and the type of movie they can watch
+* This function check the type of triangle
  */
 // eslint-disable-next-line no-unused-vars
 function checkTypeOfTriangle () {
